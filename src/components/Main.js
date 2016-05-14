@@ -1,14 +1,22 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import Home from './home';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-var Main = React.createClass({
-  render: function() {
+const lightMuiTheme = getMuiTheme(lightBaseTheme);
+
+class Main extends Component {
+  render() {
     return (
-      <div>
-        Hello, world. Sick reload, bruhtitsdicks.......
-      </div>
+      <MuiThemeProvider muiTheme={lightMuiTheme}>
+        <Home />
+      </MuiThemeProvider>
     )
   }
-});
+}
 
+injectTapEventPlugin();
 ReactDOM.render(<Main />, document.getElementById('app'));
