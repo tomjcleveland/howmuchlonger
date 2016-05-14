@@ -1,0 +1,12 @@
+{
+  "name": "howmuchlonger",
+  "version": "1.0.0",
+  "description": "How much longer do I have?",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --content-base public/ --inline --history-api-fallback --progress --colors --watch"
+  },
+  "author": "Tom Cleveland <tom.cleveland@gmail.com>",
+  "license": "ISC"
+}
