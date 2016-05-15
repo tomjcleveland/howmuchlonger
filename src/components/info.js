@@ -22,7 +22,7 @@ export default class Help extends Component {
                 open={this.state.isOpen}
                 onRequestClose={this.handleClose.bind(this)}
                 >
-                Good question. Life expectancies for every age are published by the US Social Security Administration&nbsp;
+                Good question. Life expectancies for every age are published by the US Social Security Administration &nbsp;
                 <a href="https://www.ssa.gov/oact/STATS/table4c6.html" target="_blank">here</a>. Since the values in that table
                 are discrete, I estimate the real life expectency by assuming the life expectancy over a year
                 decays linearly between the two values. It doesn't, but it's close enough.
