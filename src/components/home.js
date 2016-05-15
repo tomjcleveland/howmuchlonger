@@ -5,6 +5,7 @@ import { Card, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import { navigateToCountdown } from '../utils/navigate';
+import Footer from './footer';
 
 export default class Home extends Component {
     constructor(props) {
@@ -54,7 +55,7 @@ export default class Home extends Component {
                     <CardTitle style={titleStyle} title="How much longer?" />
                     <CardText>
                         <div>
-                            <DatePicker onChange={this.handleBirthdayChange.bind(this) } maxDate={new Date() } mode="landscape" hintText="Your birthday" />
+                            <DatePicker onChange={this.handleBirthdayChange.bind(this) } maxDate={new Date()} minDate={new Date(1800, 1, 1)} mode="landscape" hintText="Your birthday" />
                             <br />
                             <RadioButtonGroup name="sex" onChange={this.handleGenderChange.bind(this) }>
                                 <RadioButton label="Male" value="male"/>
@@ -64,6 +65,8 @@ export default class Home extends Component {
                             <RaisedButton disabled={!this.state.canSubmit} onTouchTap={this.toCountdown.bind(this) } secondary={true} label="Predict Death" />
                         </div>
                     </CardText>
+                    <br />
+                    <Footer />
                 </Card>
             </div>
         )

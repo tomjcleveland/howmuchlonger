@@ -4,6 +4,7 @@ import { Card, CardText } from 'material-ui/Card';
 import LinearProgress from 'material-ui/LinearProgress';
 import Header from './header';
 import Clock from './clock';
+import Footer from './footer';
 import { formatDate } from '../utils/format';
 
 const interval = 10;
@@ -41,7 +42,9 @@ export default class Countdown extends Component {
     render() {
         let { deathDate, remaining, completed } = this.state;
         const cardStyle = {
-            marginTop: "200px"
+            marginTop: "200px",
+            marginLeft: "100px",
+            marginRight: "100px"
         }
         const progressStyle = {
             height: "100px"
@@ -56,6 +59,7 @@ export default class Countdown extends Component {
                 <br />
                 <Header label={completed + "% of your life is over"} />
                 <br />
+                <Footer />
             </Card>
         )
     }
