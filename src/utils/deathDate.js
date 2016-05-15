@@ -1,4 +1,4 @@
-womenLife = {
+export const womenLife = {
     "0": 80.95,
     "1": 80.39,
     "2": 79.42,
@@ -121,7 +121,7 @@ womenLife = {
     "119": 0.6
 }
 
-menLife = {
+export const menLife = {
     "0": 76.18,
     "1": 75.69,
     "2": 74.72,
@@ -244,7 +244,7 @@ menLife = {
     "119": 0.6
 }
 
-function deathDate(birthday, isMale) {
+export function deathDate(birthday, isMale) {
     var remainingYears;
     if (isMale) {
         remainingYears = timeLeft(menLife, birthday);
@@ -255,19 +255,15 @@ function deathDate(birthday, isMale) {
     return new Date(millisLeft + Date.now());
 }
 
-function timeLeft(lifeObj, birthday) {
-    age = yearsDifference(birthday, new Date());
-    whole = Math.floor(age)
-    fraction = age - whole
-    upper = lifeObj[whole.toString()]
-    lower = lifeObj[(whole+1).toString()]
+export function timeLeft(lifeObj, birthday) {
+    var age = yearsDifference(birthday, new Date());
+    var whole = Math.floor(age)
+    var fraction = age - whole
+    var upper = lifeObj[whole.toString()]
+    var lower = lifeObj[(whole+1).toString()]
     return ((upper-lower) * fraction) + lower
 }
 
-function yearsDifference(date1, date2) {
+export function yearsDifference(date1, date2) {
     return Math.abs(date1-date2) / (1000 * 60 * 60 * 24 * 365.25);
 }
-
-// Testing
-birthday = new Date(1990, 5, 24);
-console.log(deathDate(birthday, false));

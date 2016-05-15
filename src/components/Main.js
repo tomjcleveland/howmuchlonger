@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import ReactDOM from 'react-dom';
 import Home from './home';
+import Base from './base';
+import Countdown from './countdown';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
-const lightMuiTheme = getMuiTheme(lightBaseTheme);
-
-class Main extends Component {
-  render() {
-    return (
-      <MuiThemeProvider muiTheme={lightMuiTheme}>
-        <Home />
-      </MuiThemeProvider>
-    )
-  }
-}
 
 injectTapEventPlugin();
-ReactDOM.render(<Main />, document.getElementById('app'));
+ReactDOM.render((
+  <Router history={browserHistory} >
+    <Route path="/" component={Base}>
+      <IndexRoute component={Home} />
+      <Route path=":gender/:birthday" component={Countdown} />
+    </Route>
+  </Router>
+), document.getElementById("app")
+);
