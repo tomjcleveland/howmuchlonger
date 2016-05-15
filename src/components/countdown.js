@@ -6,9 +6,9 @@ export default class Countdown extends Component {
     constructor(props) {
         super(props);
         var bdayMillis = Number(this.props.params.birthday);
-        console.log(bdayMillis);
+        var gender = this.props.params.gender;
         this.state = {
-            deathDate: deathDate(new Date(bdayMillis), true)
+            deathDate: deathDate(new Date(bdayMillis), gender == "male")
         }
     }
     render() {

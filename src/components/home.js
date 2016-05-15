@@ -29,7 +29,6 @@ export default class Home extends Component {
     }
     checkDisabledButton() {
         if ((this.state.gender == "male" || this.state.gender == "female") && this.state.birthday) {
-            console.log("you can submit now!");
             this.state.canSubmit = true;
         }
     }
