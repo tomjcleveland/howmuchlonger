@@ -268,7 +268,7 @@ export function timeLeft(lifeObj, birthday) {
     var fraction = age - whole
     var upper = lifeObj[whole.toString()]
     var lower = lifeObj[(whole+1).toString()]
-    return ((upper-lower) / fraction) + lower;
+    return upper - ((upper-lower) * fraction);
 }
 
 export function yearsDifference(date1, date2) {
