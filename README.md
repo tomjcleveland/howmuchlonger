@@ -23,4 +23,4 @@ export function timeLeft(lifeObj, birthday) {
 `timeLeft()` returns the number of years someone has left on this planet. `lifeObj` is the Javascript object that holds the actuarial data I'm using.
 
 ## Why I built it
-I'm trying to see what the fuss over React is about. Oh and remind everyone about their inescapable mortality.
+I'm trying to see what the fuss over React is about. Oh and to remind everyone about their inescapable mortality.
