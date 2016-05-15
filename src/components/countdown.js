@@ -3,6 +3,8 @@ import { deathDate, percentComplete, timeRemaining } from '../utils/deathDate';
 import { Card, CardText } from 'material-ui/Card';
 import LinearProgress from 'material-ui/LinearProgress';
 
+const interval = 10;
+
 export default class Countdown extends Component {
     constructor(props) {
         super(props);
@@ -16,7 +18,7 @@ export default class Countdown extends Component {
         };
     }
     componentDidMount() {
-        this.timer = setTimeout(() => this.updateDates(), 1000);
+        this.timer = setTimeout(() => this.updateDates(), interval);
     }
     updateDates() {
         var bdayMillis = Number(this.props.params.birthday);
@@ -28,7 +30,7 @@ export default class Countdown extends Component {
             remaining: timeRemaining(birthday, isMale)
         };
         this.setState(newState);
-        this.timer = setTimeout(() => this.updateDates(), 1000);
+        this.timer = setTimeout(() => this.updateDates(), interval);
     }
     componentWillUnmount() {
         clearTimeout(this.timer);
