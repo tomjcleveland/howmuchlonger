@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DatePicker from 'material-ui/DatePicker';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
-import { Card, CardHeader, CardTitle, CardText } from 'material-ui/Card';
+import { Card, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import { navigateToCountdown } from '../utils/navigate';
@@ -37,24 +37,32 @@ export default class Home extends Component {
     }
     render() {
         const divStyle = {
-            margin: "auto"
+            margin: "auto",
         }
         const cardStyle = {
-            width: "400px"
+            marginTop: "200px",
+            marginLeft: "auto",
+            marginRight: "auto",
+            width: "300px"
+        }
+        const titleStyle = {
+            textAlign: "center"
         }
         return (
             <div style={divStyle}>
                 <Card style={cardStyle}>
-                    <CardHeader title="How much longer you do have?" subtitle="Let's find out" />
+                    <CardTitle style={titleStyle} title="How much longer?" />
                     <CardText>
-                        <DatePicker onChange={this.handleBirthdayChange.bind(this)} maxDate={new Date()} mode="landscape" hintText="Your birthday" />
-                        <br />
-                        <RadioButtonGroup name="sex" onChange={this.handleGenderChange.bind(this)}>
-                            <RadioButton label="Male" value="male"/>
-                            <RadioButton label="Female" value="female" />
-                        </RadioButtonGroup>
-                        <br />
-                        <RaisedButton disabled={!this.state.canSubmit} onTouchTap={this.toCountdown.bind(this)} secondary={true} label="Predict Death" />
+                        <div>
+                            <DatePicker onChange={this.handleBirthdayChange.bind(this) } maxDate={new Date() } mode="landscape" hintText="Your birthday" />
+                            <br />
+                            <RadioButtonGroup name="sex" onChange={this.handleGenderChange.bind(this) }>
+                                <RadioButton label="Male" value="male"/>
+                                <RadioButton label="Female" value="female" />
+                            </RadioButtonGroup>
+                            <br />
+                            <RaisedButton disabled={!this.state.canSubmit} onTouchTap={this.toCountdown.bind(this) } secondary={true} label="Predict Death" />
+                        </div>
                     </CardText>
                 </Card>
             </div>

@@ -288,14 +288,22 @@ export function timeRemaining(birthday, isMale) {
     remaining = remaining - (daysLeft * day);
     var hoursLeft = Math.floor(remaining / hour);
     remaining = remaining - (hoursLeft * hour);
-    var minutesLeft = Math.floor(remaining / minute);
+    var minutesLeft = padZeroes(Math.floor(remaining / minute));
     remaining = remaining - (minutesLeft * minute);
-    var secondsLeft = remaining / second;
+    var secondsLeft = padZeroes((remaining / second).toFixed(2));
     return {
         years: yearsLeft,
         days: daysLeft,
         hours: hoursLeft,
         minutes: minutesLeft,
         seconds: secondsLeft
+    }
+}
+
+function padZeroes(num) {
+    if (num < 10) {
+        return "0" + num;
+    } else {
+        return num;
     }
 }

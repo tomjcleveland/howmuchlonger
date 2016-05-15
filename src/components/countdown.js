@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { deathDate, percentComplete, timeRemaining } from '../utils/deathDate';
 import { Card, CardText } from 'material-ui/Card';
 import LinearProgress from 'material-ui/LinearProgress';
+import Header from './header';
+import Clock from './clock';
+import { formatDate } from '../utils/format';
 
 const interval = 10;
 
@@ -36,16 +39,23 @@ export default class Countdown extends Component {
         clearTimeout(this.timer);
     }
     render() {
-        let { deathDate } = this.state;
+        let { deathDate, remaining, completed } = this.state;
+        const cardStyle = {
+            marginTop: "200px"
+        }
+        const progressStyle = {
+            height: "100px"
+        }
         return (
-            <Card>
+            <Card style={cardStyle}>
                 <CardText>
-                    <h4>You have {this.state.remaining.years} years, {this.state.remaining.days} days, {this.state.remaining.hours} hours, {this.state.remaining.minutes} minutes, and {this.state.remaining.seconds} seconds left to live.</h4>
-                    <h1>You will die on {deathDate.toString() }</h1>
+                    <Clock remaining={remaining} />
+                    <Header label={"You will die on " + formatDate(deathDate)} />
                 </CardText>
-                <LinearProgress mode="determinate" value={this.state.completed} />
+                <LinearProgress color="#ff4081" style={progressStyle} mode="determinate" value={completed} />
                 <br />
-                <h1>{this.state.completed}% of your life is over</h1>
+                <Header label={completed + "% of your life is over"} />
+                <br />
             </Card>
         )
     }
