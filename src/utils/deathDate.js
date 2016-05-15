@@ -274,3 +274,28 @@ export function timeLeft(lifeObj, birthday) {
 export function yearsDifference(date1, date2) {
     return Math.abs(date1-date2) / (1000 * 60 * 60 * 24 * 365.25);
 }
+
+export function timeRemaining(birthday, isMale) {
+    var second = 1000;
+    var minute = second * 60;
+    var hour = minute * 60;
+    var day = hour * 24;
+    var year = day * 365;
+    var remaining = deathDate(birthday, isMale) - (new Date());
+    var yearsLeft = Math.floor(remaining / year);
+    remaining = remaining - (yearsLeft * year);
+    var daysLeft = Math.floor(remaining / day);
+    remaining = remaining - (daysLeft * day);
+    var hoursLeft = Math.floor(remaining / hour);
+    remaining = remaining - (hoursLeft * hour);
+    var minutesLeft = Math.floor(remaining / minute);
+    remaining = remaining - (minutesLeft * minute);
+    var secondsLeft = remaining / second;
+    return {
+        years: yearsLeft,
+        days: daysLeft,
+        hours: hoursLeft,
+        minutes: minutesLeft,
+        seconds: secondsLeft
+    }
+}
