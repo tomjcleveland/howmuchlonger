@@ -25,7 +25,7 @@ export default class Help extends Component {
                 Good question. Life expectancies for every age are published by the US Social Security Administration 
                 <a href="https://www.ssa.gov/oact/STATS/table4c6.html">here</a>. Since the values in that table
                 are discrete, I estimate the real life expectency by assuming the life expectancy over a year
-                decays linearly between the two values (which it doesn't).
+                decays linearly between the two values. It doesn't, but it's close enough.
                 <br />
                 <br />
                 If you stare at this clock long enough, you'll notice that your expected death date will creep slowly
