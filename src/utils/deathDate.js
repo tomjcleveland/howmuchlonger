@@ -255,13 +255,20 @@ export function deathDate(birthday, isMale) {
     return new Date(millisLeft + Date.now());
 }
 
+export function percentComplete(birthday, isMale) {
+    var totalMillis = deathDate(birthday, isMale) - birthday;
+    var now = new Date();
+    var elapsedMillis = now - birthday;
+    return Math.round((elapsedMillis / totalMillis) * 100);
+}
+
 export function timeLeft(lifeObj, birthday) {
     var age = yearsDifference(birthday, new Date());
     var whole = Math.floor(age)
     var fraction = age - whole
     var upper = lifeObj[whole.toString()]
     var lower = lifeObj[(whole+1).toString()]
-    return ((upper-lower) * fraction) + lower
+    return ((upper-lower) * fraction) + lower;
 }
 
 export function yearsDifference(date1, date2) {
