@@ -66,6 +66,7 @@
     <script>
         function hideSpinner() {
             document.getElementById("loader").style.display = "none";
+            document.getElementById("app").style.display = "block";
         }
     </script>
 
@@ -77,6 +78,6 @@
     <div id="loader">
         <div class="loading"></div>
     </div>
-    <div id="app"></div>
+    <div id="app" style="display: none;"></div>
     <script src="/bundle.js"></script>
 </body>
