@@ -41,7 +41,7 @@ export default class Home extends Component {
             margin: "auto",
         }
         const cardStyle = {
-            marginTop: "200px",
+            marginTop: "150px",
             marginLeft: "auto",
             marginRight: "auto",
             width: "300px"

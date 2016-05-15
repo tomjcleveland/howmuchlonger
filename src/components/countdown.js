@@ -42,7 +42,7 @@ export default class Countdown extends Component {
     render() {
         let { deathDate, remaining, completed } = this.state;
         const cardStyle = {
-            marginTop: "200px",
+            marginTop: "150px",
             marginLeft: "100px",
             marginRight: "100px"
         }

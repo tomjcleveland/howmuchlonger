@@ -5,12 +5,78 @@
         body {
             background-color: #222222;
         }
+        
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        
+        @-webkit-keyframes pulse {
+            50% {
+                background: white;
+            }
+        }
+        
+        @keyframes pulse {
+            50% {
+                background: white;
+            }
+        }
+        
+        html,
+        body {
+            height: 100%;
+        }
+        
+        .loading {
+            margin-top: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            border: 0.25rem solid rgba(255, 255, 255, 0.2);
+            border-top-color: white;
+            -webkit-animation: spin 1s infinite linear;
+            animation: spin 1s infinite linear;
+        }
+        
+        #loader {
+            margin: auto;
+            width: 100%;
+        }
     </style>
+    <script>
+        function hideSpinner() {
+            document.getElementById("loader").style.display = "none";
+        }
+    </script>
+
     <title>How much longer?</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
 </head>
 
-<body>
+<body onload="hideSpinner();">
+    <div id="loader">
+        <div class="loading"></div>
+    </div>
     <div id="app"></div>
     <script src="/bundle.js"></script>
 </body>
